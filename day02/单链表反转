@@ -1,0 +1,25 @@
+// //1、迭代反转
+// // Linklist* reverseList(Linklist* head){
+// //     if(head==nullptr||head->next=nullptr){
+// //         return head;
+// //     }
+// //     Linklist* nex=nullptr;
+// //     Linklist* pre=nullptr;
+// //     while(head!=nullptr){
+// //         nex=head->next;
+// //         head->next=pre;
+// //         pre=head;
+// //         head=next;
+// //     }
+// //     return pre;
+// // }
+// 2、递归反转
+// LinkList* reverseList(LinkList* head){
+//     if(head==nullptr||head->next==nullptr){
+//         return head;
+//     }
+//     LinkList* newNode=reverseList(head->next);
+//     head->next->next=head;
+//     head->next=nullptr;
+//     return newNode;
+// }
