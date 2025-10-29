@@ -1,0 +1,47 @@
+// #include<iostream>
+// using namespace std;
+// struct Linklist{
+//     Linklist*next;
+//     int val;
+// };
+// Linklist* huafen(Linklist* head,int target)
+// {
+//     if(head==nullptr||head->next==nullptr){
+//         return head;
+//     }
+//     Linklist* cur=head;
+//     Linklist* bh=nullptr;
+//     Linklist* bt=nullptr;
+//     Linklist* sh=nullptr;
+//     Linklist* st=nullptr;
+//     while(cur!=nullptr){
+//         Linklist* nex=cur->next;
+//         cur->next=nullptr;
+//         if(cur->val>=target){
+//             if(bh==nullptr){
+//                 bh=cur;
+//                 bt=cur;
+//             }else{
+//                 bt->next=cur;
+//                 bt=cur;
+//             }
+            
+//         }
+//         else {
+//             if(sh==nullptr){
+//                 sh=cur;
+//                 st=cur;
+//             }else{
+//                 st->next=cur;
+//                 st=cur;
+//             }
+//         }
+//         cur=nex;
+//     }
+//     if(sh==nullptr){
+//         return bh;
+//     }else{
+//         st->next=bh;
+//         return sh;
+//     }
+// }

@@ -1,0 +1,47 @@
+class MyStack {
+    private:
+    queue<int>in,out;
+    void in2out(){
+        if(!in.empty()&&!out.empty()){
+            while(!out.empty()){
+                in.push(out.front());
+                out.pop();
+            }
+            while(!in.empty()){
+                out.push(in.front());
+                in.pop();
+            }
+        }
+        else if(!in.empty()&&out.empty()){
+            while(!in.empty()){
+                out.push(in.front());
+                in.pop();
+            }
+        }
+    }
+public:
+    MyStack() {
+        
+    }
+    
+    void push(int x) {
+        in2out();
+        in.push(x);
+    }
+    
+    int pop() {
+        in2out();
+        int x=out.front();
+        out.pop();
+        return x;
+    }
+    
+    int top() {
+        in2out();
+        return out.front();
+    }
+    
+    bool empty() {
+        return in.empty()&&out.empty();
+    }
+};

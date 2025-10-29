@@ -1,0 +1,35 @@
+// class MinStack {
+//     private:
+//     stack<long long>Min;
+//     long long minval;
+// public:
+//     MinStack() {
+//         minval=0;
+//     }
+    
+//     void push(int val) {
+//        if(Min.empty()){
+//         minval=val;
+//         Min.push(0);
+//        }else{
+//         Min.push(val-minval);
+//         if(val<minval){
+//             minval=val;
+//         }
+//        }
+//     }
+    
+//     void pop() {
+//         if(Min.top()<0) minval=minval-Min.top();
+//         Min.pop();
+//     }
+    
+//     int top() {
+//         if(Min.top()>=0)return Min.top()+minval;
+//         return minval;
+//     }
+    
+//     int getMin() {
+//         return minval;
+//     }
+// };

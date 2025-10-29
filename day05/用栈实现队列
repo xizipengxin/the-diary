@@ -1,0 +1,38 @@
+class MyQueue {
+    private:
+    stack<int>in,out;
+    void in2out(){
+        while(!in.empty()){
+            out.push(in.top());
+            in.pop();
+        }
+    }
+public:
+    MyQueue() {
+        
+    }
+    
+    void push(int x) {
+       in.push(x);
+    }
+    
+    int pop() {
+        if(out.empty()){
+            in2out();
+        }
+        int x=out.top();
+        out.pop();
+        return x;
+    }
+    
+    int peek() {
+         if(out.empty()){
+            in2out();
+        }
+        return out.top();
+    }
+    
+    bool empty() {
+        return in.empty()&&out.empty();
+    }
+};

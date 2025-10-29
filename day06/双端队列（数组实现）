@@ -1,0 +1,89 @@
+class MyCircularDeque {
+    private:
+    vector<int>de;
+    int limit,len;
+    int head,tail;
+public:
+    MyCircularDeque(int k) {
+        limit=k;
+        len=0;
+        de.resize(k);
+    }
+    
+    bool insertFront(int value) {
+        if(len==limit){
+            return false;
+        }
+        if(len==0){
+            head=tail=0;
+            de[0]=value;
+        }else{
+            head=(head-1+limit)%limit;
+            de[head]=value;
+        }
+        len++;
+        return true;
+
+    }
+    
+    bool insertLast(int value) {
+        if(len==limit){
+            return false;
+        }
+        if(len==0){
+            head=tail=0;
+            de[0]=value;
+        }else{
+            tail=(tail+1)%limit;
+            de[tail]=value;
+        }
+        len++;
+        return true;
+    }
+    
+    bool deleteFront() {
+        if(len==0){
+            return false;
+        }
+        head=(head+1)%limit;
+        len--;
+        return true;
+    }
+    
+    bool deleteLast() {
+        if(len==0){
+            return false;
+        }
+        tail=(tail-1+limit)%limit;
+        len--;
+        return true;
+    }
+    
+    int getFront() {
+        if(len==0){
+            return -1;
+        }
+        return de[head];
+    }
+    
+    int getRear() {
+        if(len==0){
+            return -1;
+        }
+        return de[tail];
+    }
+    
+    bool isEmpty() {
+        if(len==0){
+            return true;
+        }
+        return false;
+    }
+    
+    bool isFull() {
+        if(len==limit){
+            return true;
+        }
+        return false;
+    }
+};

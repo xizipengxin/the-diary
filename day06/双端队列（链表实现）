@@ -1,0 +1,104 @@
+struct Link{
+    int val;
+    Link* next,* pre;
+    Link(int _val):val(_val),pre(nullptr),next(nullptr){
+
+    }
+};
+class MyCircularDeque {
+    private:
+    Link *head;Link *tail;
+    int capacity;
+    int len;
+public:
+    MyCircularDeque(int k) {
+        capacity=k;
+        len=0;
+        head=nullptr;
+        tail=nullptr;
+    }
+    
+    bool insertFront(int value) {
+        if(len==capacity){
+            return false;
+        }
+        Link* newnode=new Link(value);
+        if(len==0){
+            head=tail=newnode;
+        }else{
+            head->pre=newnode;
+            newnode->next=head;
+            head=newnode;
+        }
+        len++;
+        return true;
+    }
+    
+    bool insertLast(int value) {
+        if(len==capacity){
+            return false;
+        }
+        Link* newnode=new Link(value);
+        if(len==0){
+            head=tail=newnode;
+        }else{
+            tail->next=newnode;
+            newnode->pre=tail;
+            tail=newnode;
+        }        
+        len++;
+        return true;
+    }
+    
+    bool deleteFront() {
+        if(len==0){
+            return false;
+        }
+        Link* cur=head;
+        head=head->next;
+       if(head) head->pre=nullptr;
+        delete(cur);
+        len--;
+        return true;
+    }
+    
+    bool deleteLast() {
+        if(len==0){
+            return false;
+        }
+        Link* cur=tail;
+        tail=tail->pre;
+        if(tail)tail->next=nullptr;
+        delete(cur);
+        len--;
+        return true;
+    }
+    
+    int getFront() {
+        if(len==0){
+            return -1;
+        }
+        return head->val;
+    }
+    
+    int getRear() {
+        if(len==0){
+            return -1;
+        }
+        return tail->val;
+    }
+    
+    bool isEmpty() {
+        if(len==0){
+            return true;
+        }
+        return false;
+    }
+    
+    bool isFull() {
+        if(len==capacity){
+            return true;
+        }
+        return false;
+    }
+};

@@ -1,0 +1,25 @@
+// class MinStack {
+//     stack<long long>data,Min;
+// public:
+//     MinStack() {
+//         Min.push(INT_MAX);
+//     }
+    
+//     void push(int val) {
+//         data.push(val);
+//         Min.push((Min.top()<val?Min.top():val));
+//     }
+    
+//     void pop() {
+//         data.pop();
+//         Min.pop();
+//     }
+    
+//     int top() {
+//         return data.top();
+//     }
+    
+//     int getMin() {
+//         return Min.top();
+//     }
+// };

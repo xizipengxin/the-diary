@@ -1,0 +1,16 @@
+//https://leetcode.cn/problems/rotate-array/description/
+//一个非常妙的解法-反转
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int n=nums.size();
+        k%=n;
+        if(k==0){
+            return;
+        }
+        reverse(nums.begin(),nums.end());
+        reverse(nums.begin(),nums.begin()+k);//注意：结束迭代器是 j+1（左闭右开）
+        reverse(nums.begin()+k,nums.end());
+        return;
+    }
+};
